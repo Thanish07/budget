@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budget Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .budget-container {
+      background: #ffffff;
+      padding: 20px;
+      width: 280px;
+      border-radius: 10px;
+      border: 2px solid #4f46e5;
+      text-align: center;
+    }
+
+    h2 {
+      color: #4f46e5;
+      margin-bottom: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #aaa;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    h3 {
+      margin-top: 15px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="budget-container">
+  <h2>Budget Tracker</h2>
+
+  <input type="number" id="amount" placeholder="Enter amount">
+
+  <select id="type">
+    <option value="">Select type</option>
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+  </select>
+
+  <button onclick="addMoney()">Add</button>
+
+  <h3>Balance: ₹<span id="balance">0</span></h3>
+</div>
+
+<script>
+  let balance = 0;
+
+  function addMoney() {
+    const amount = Number(document.getElementById("amount").value);
+    const type = document.getElementById("type").value;
+
+    if (!amount || type === "") {
+      alert("Enter amount and select type");
+      return;
+    }
+
+    if (type === "income") {
+      balance += amount;
+    } else {
+      balance -= amount;
+    }
+
+    document.getElementById("balance").innerText = balance;
+    document.getElementById("amount").value = "";
+    document.getElementById("type").value = "";
+  }
+</script>
+
+</body>
+</html>
