@@ -83,7 +83,7 @@
       span.onclick = () => span.classList.toggle("completed");
 
       const delBtn = document.createElement("button");
-      delBtn.innerText = "";
+      delBtn.innerText = "delete";
       delBtn.onclick = () => li.remove();
 
       li.appendChild(span);
