@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>To-Do List</title>
-
-  <!-- CSS -->
   <style>
     body {
       font-family: Arial;
@@ -13,7 +11,6 @@
       justify-content: center;
       margin-top: 50px;
     }
-
     .todo-container {
       background: white;
       padding: 20px;
@@ -21,51 +18,39 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     h2 {
       text-align: center;
     }
-
     input {
       width: 70%;
       padding: 6px;
     }
-
     button {
       padding: 6px 10px;
       cursor: pointer;
     }
-
     ul {
       list-style: none;
       padding: 0;
     }
-
     li {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
     }
-
     .completed {
       text-decoration: line-through;
       color: gray;
     }
   </style>
 </head>
-
 <body>
-
   <div class="todo-container">
     <h2>To-Do List </h2>
-
     <input type="text" id="taskInput" placeholder="Enter task">
     <button onclick="addTask()">Add</button>
-
     <ul id="taskList"></ul>
   </div>
-
-  <!-- JavaScript -->
   <script>
     function addTask() {
       const input = document.getElementById("taskInput");
@@ -75,24 +60,18 @@
         alert("Please enter a task");
         return;
       }
-
       const li = document.createElement("li");
-
       const span = document.createElement("span");
       span.innerText = taskText;
       span.onclick = () => span.classList.toggle("completed");
-
       const delBtn = document.createElement("button");
       delBtn.innerText = "delete";
       delBtn.onclick = () => li.remove();
-
       li.appendChild(span);
       li.appendChild(delBtn);
-
       document.getElementById("taskList").appendChild(li);
       input.value = "";
     }
   </script>
-
 </body>
 </html>
